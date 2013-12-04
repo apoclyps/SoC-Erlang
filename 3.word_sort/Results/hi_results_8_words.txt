@@ -1,0 +1,8 @@
+6   	: "a" 
+1   	: "abcdeabcdeabcdeabcde" 
+3   	: "b" 
+1   	: "babcdeabcdeabcdeabcdeabcde" 
+4   	: "c" 
+4   	: "d" 
+5   	: "e" 
+1   	: "z" 

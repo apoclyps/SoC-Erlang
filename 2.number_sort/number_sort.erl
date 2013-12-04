@@ -1,8 +1,12 @@
 -module(number_sort).
--export([main/1]).
--export([unique/2]).
--export([sort/1]).
--export([count/1,count/2]).
+-export([main/1,unique/2,count/1,count/2,sort/1,readlines/1]).
+
+readlines(FileName) ->
+    io:format("~nLoading File : ~p~n", [FileName]),
+    {ok, File} = file:read_file(FileName),
+    Content = unicode:characters_to_list(File),
+    TokenList = string:tokens(string:to_lower(Content), " .,;:!?/>'<{}£$%^&()-=+_[]*#\\\n\r\"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"),
+    main(TokenList).
 
 main(L) ->                                  % Main takes in unsorted list
     Seen = [],                              % Initialises Seen to Empty List

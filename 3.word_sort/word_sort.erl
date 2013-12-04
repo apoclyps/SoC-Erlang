@@ -16,7 +16,7 @@ readlines(FileName) ->
     io:format("~nLoading File : ~p~n", [FileName]),
     {ok, File} = file:read_file(FileName),
     Content = unicode:characters_to_list(File),
-    TokenList = string:tokens(string:to_lower(Content), " .,;:!?/>'<{}£$%^&()-=+_[]*#\\\n\r\""),
+    TokenList = string:tokens(string:to_lower(Content), " .,;:!?~/>'<{}£$%^&()@-=+_[]*#\\\n\r\"0123456789"),
     main(TokenList).
 
 main(TokenList) ->                                  % Main takes in unsorted list
@@ -27,7 +27,7 @@ main(TokenList) ->                                  % Main takes in unsorted lis
     io:format("~nSorted List : "),
     
     io:format("~nWriting to file - This may take 1-2 minutes~n"),
-    {ok, F} = file:open("unique_words", [write]),
+    {ok, F} = file:open("unique_words.txt", [write]),
     register(my_output_file, F),
     U = wordCounter(SortedList,TokenList,0),
     io:format("~nUnique : ~p~n", [U]),
